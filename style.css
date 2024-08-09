@@ -2,4 +2,50 @@
     border: 1px red solid;
 }
 
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
 
+body {
+    grid-template-areas:
+        "header"
+        "main";
+    display: grid;
+    grid-template-rows: 260px 1fr;
+    height: 100%;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    padding: 40px;
+    gap: 40px;
+}
+
+.top-of-header {}
+
+.search-area {}
+
+.title-area {}
+
+.lower-page {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax(100px, 200px) 1fr;
+}
+
+.sidebar {}
+
+.bottom-right {
+    display: grid;
+}
+
+.today-area {
+    margin: 20px;
+}
+
+.forecast-area {
+    margin: 0 20px 20px 20px;
+}
