@@ -42,7 +42,7 @@ const retrieveData = async function retrieveWeatherDataFromApi(
     const response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${todayDate}/${endDate}?unitGroup=${metricUkUs}&include=days&key=YA24L3VQXAWW22R59U2KSCXTQ`
     );
-    const locationData = await response.json();
+    const locationData = response.json();
     return locationData;
   } catch {
     console.log("error");
@@ -71,4 +71,9 @@ const favourites = new Favourites();
 
 favourites.addFave("item");
 
-console.log(retrieveData("Gardanne", "2024-08-11", "2024-08-18", "metric"))
+const retrievedData = retrieveData(
+  "Paris",
+  "2024-08-11",
+  "2024-08-18",
+  "metric"
+);
