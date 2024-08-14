@@ -1,5 +1,6 @@
 const updateToday = async function updateTodaysWeatherCard(promise) {
-  const locationName = await promise.address;
+  const location = await promise;
+  const locationName = location.address;
   console.log("today's data:");
   console.log(locationName);
 };
