@@ -46,6 +46,12 @@ header {
     margin: 20px;
 }
 
+.today-card {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax(100px, 200px) 1fr;
+}
+
 .forecast-area {
     margin: 0 20px 20px 20px;
 }
