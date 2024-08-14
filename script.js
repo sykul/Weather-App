@@ -16,11 +16,8 @@ const colours = [
 const retrievedPromise = retrieveData(
   "Paris",
   "2024-08-11",
-  "2024-08-18",
+  "2024-08-17",
   "metric"
 );
-/* 
-updateView(retrievedPromise)
 
- */
-console.log(retrievedPromise)
+updateView(retrievedPromise)

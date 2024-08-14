@@ -1,13 +1,13 @@
 const updateToday = async function updateTodaysWeatherCard(promise) {
-  const locationName = await promise.address
-  console.log("forecast data:")
+  const locationName = await promise.address;
+  console.log("today's data:");
   console.log(locationName);
 };
 
 const updateForecast = async function updateSevenDayForecastCard(promise) {
   const data = await promise;
-  console.log("forecast data:")
-  console.log(promise)
+  console.log("forecast data:");
+  console.log(data);
 };
 
 const appendFave = function appendToFavouritesSidebar() {};
@@ -28,4 +28,4 @@ const returnTopLocation = function returnTopLocationFromDropdownList() {};
 const returnClickedLocation =
   function returnClickedLocationFromDropdownList() {};
 
-export { updateView }
+export { updateView };
