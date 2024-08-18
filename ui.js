@@ -18,7 +18,7 @@ const updateToday = async function updateTodaysWeatherCard(locationObject) {
   const todaysWeather = today.icon;
   const todaysWeatherIcon = document.createElement("img");
   todaysWeatherIcon.src = `icons/${todaysWeather}.svg`;
-  todayCardLeft.appendChild(todaysWeatherIcon)  ;
+  todayCardLeft.appendChild(todaysWeatherIcon);
 
   todayCardRight.querySelector(".temp").textContent = today.feelslike;
   todayCardRight.querySelector(".max-temp").textContent = today.feelslikemax;
@@ -27,16 +27,16 @@ const updateToday = async function updateTodaysWeatherCard(locationObject) {
     ".rain-prob"
   ).textContent = `${today.precipprob}%`;
   todayCardRight.querySelector(".moon-phase").textContent = today.moonphase;
-
-  console.log("today's data:");
-  console.log(locationName);
 };
 
 const updateForecast = async function updateSevenDayForecastCard(
   locationObject
 ) {
-  forecastDays.forEach((day, index) => {
-    day.textContent = locationObject.days[index].icon;
+  forecastDays.forEach((day, index, listObj) => {
+    let weatherIcon = document.createElement("img");
+    weatherIcon.src = `icons/${locationObject.days[index + 1].icon}.svg`;
+    day.textContent = '';
+    day.appendChild(weatherIcon);
   });
 };
 
