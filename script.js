@@ -14,7 +14,7 @@ const colours = [
 ];
 
 const retrievedPromise = retrieveData(
-  "Paris",
+  "Aix-en-Provence",
   "2024-08-11",
   "2024-08-17",
   "metric"

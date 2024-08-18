@@ -3,7 +3,6 @@ const locationHeading = document.querySelector(".location-heading");
 const todayCardLeft = document.querySelector(".today-card-left");
 const todayCardRight = document.querySelector(".today-card-right");
 const forecastDays = document.querySelectorAll(".forecast-cards > div");
-console.log(forecastDays);
 
 const clearSearchBox = function clearSearchBoxContent() {
   searchBox.value = "";
@@ -17,7 +16,9 @@ const updateToday = async function updateTodaysWeatherCard(locationObject) {
   const locationName = locationObject.address;
   const today = locationObject.days[0];
   const todaysWeather = today.icon;
-  todayCardLeft.textContent = todaysWeather;
+  const todaysWeatherIcon = document.createElement("img");
+  todaysWeatherIcon.src = `icons/${todaysWeather}.svg`;
+  todayCardLeft.appendChild(todaysWeatherIcon)  ;
 
   todayCardRight.querySelector(".temp").textContent = today.feelslike;
   todayCardRight.querySelector(".max-temp").textContent = today.feelslikemax;
@@ -35,7 +36,6 @@ const updateForecast = async function updateSevenDayForecastCard(
   locationObject
 ) {
   forecastDays.forEach((day, index) => {
-    console.log(locationObject);
     day.textContent = locationObject.days[index].icon;
   });
 };
