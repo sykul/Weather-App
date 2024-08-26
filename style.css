@@ -27,6 +27,11 @@ header {
 
 .search-area {}
 
+.search-form > button {
+    height: 20px;
+    width: 60px;
+}
+
 .title-area {}
 
 .lower-page {

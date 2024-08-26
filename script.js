@@ -13,11 +13,11 @@ const colours = [
   "#ffa600",
 ];
 
-const retrievedPromise = retrieveData(
+/* const retrievedPromise = retrieveData(
   "Aix-en-Provence",
   "2024-08-11",
   "2024-08-17",
   "metric"
 );
 
-updateView(retrievedPromise)
+updateView(retrievedPromise) */
