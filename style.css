@@ -14,6 +14,7 @@ body {
     display: grid;
     grid-template-rows: 260px 1fr;
     height: 100%;
+    background-color: burlywood;
 }
 
 header {
@@ -25,9 +26,17 @@ header {
 
 .top-of-header {}
 
-.search-area {}
+.search-area {
+    display: flex;
+    justify-content: space-between;
+}
 
 .search-form > button {
+    height: 20px;
+    width: 60px;
+}
+
+.toggle-button {
     height: 20px;
     width: 60px;
 }

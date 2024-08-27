@@ -7,6 +7,7 @@ const locationHeading = document.querySelector(".location-heading");
 const todayCardLeft = document.querySelector(".today-card-left");
 const todayCardRight = document.querySelector(".today-card-right");
 const forecastDays = document.querySelectorAll(".forecast-cards > div");
+const toggleButton = document.querySelector(".toggle-button");
 
 const todaysDate = new Date();
 const todayIsoString = todaysDate.toISOString();
@@ -18,7 +19,13 @@ const nextWeekIsoString = nextWeeksDate.toISOString();
 const todaysDateString = todayIsoString.slice(0, 10);
 const nextWeeksDateString = nextWeekIsoString.slice(0, 10);
 
-console.log(`${todaysDateString} ${nextWeeksDateString}`);
+toggleButton.addEventListener("click", (e) => {
+  if (toggleButton.innerHTML === "<b>C°</b>/F°") {
+    toggleButton.innerHTML = "C°/<b>F°</b>";
+  } else if (toggleButton.innerHTML === "C°/<b>F°</b>") {
+    toggleButton.innerHTML = "<b>C°</b>/F°";
+  }
+});
 
 searchBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
