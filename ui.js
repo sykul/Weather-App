@@ -20,10 +20,19 @@ const todaysDateString = todayIsoString.slice(0, 10);
 const nextWeeksDateString = nextWeekIsoString.slice(0, 10);
 
 toggleButton.addEventListener("click", (e) => {
+  const temperature = document.querySelector(".temp");
+  const maxTemperature = document.querySelector(".max-temp");
+  const minTemperature = document.querySelector(".min-temp");
   if (toggleButton.innerHTML === "<b>C°</b>/F°") {
     toggleButton.innerHTML = "C°/<b>F°</b>";
+    temperature.textContent = Math.round((temperature.textContent * (9 / 5) + 32) * 10) / 10;
+    maxTemperature.textContent = Math.round((maxTemperature.textContent * (9 / 5) + 32) * 10) / 10;
+    minTemperature.textContent = Math.round((minTemperature.textContent * (9 / 5) + 32) * 10) / 10;
   } else if (toggleButton.innerHTML === "C°/<b>F°</b>") {
     toggleButton.innerHTML = "<b>C°</b>/F°";
+    temperature.textContent = Math.round(((temperature.textContent - 32) * 5 / 9) * 10) / 10;
+    maxTemperature.textContent = Math.round(((maxTemperature.textContent - 32) * 5 / 9) * 10) / 10;
+    minTemperature.textContent = Math.round(((minTemperature.textContent - 32) * 5 / 9) * 10) / 10;
   }
 });
 
