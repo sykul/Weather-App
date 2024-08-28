@@ -16,4 +16,14 @@ const retrieveData = async function retrieveWeatherDataFromApi(
   }
 };
 
-export { retrieveData }
+const retrieveGifs = async function retrieveWeatherGifs(searchWord) {
+  return fetch(
+    `https://api.giphy.com/v1/gifs/translate?api_key=zp0ecQhtLxdwIVhhEbzSXRs2PP1tP251&s=${searchWord}`,
+    { mode: "cors" }
+  )
+    .then(function (response) {
+      return response.json();
+    });
+};
+
+export { retrieveData, retrieveGifs };

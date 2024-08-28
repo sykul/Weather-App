@@ -1,4 +1,4 @@
-import { retrieveData } from "./api.js";
+import { retrieveData, retrieveGifs } from "./api.js";
 
 const searchBox = document.querySelector(".search-box");
 const searchSubmitButton = document.querySelector(".search-submit-button");
@@ -78,12 +78,16 @@ const updateHeading = function updateLocationHeading(location) {
   locationHeading.textContent = location.resolvedAddress;
 };
 
+
 const updateToday = async function updateTodaysWeatherCard(locationObject) {
   const locationName = locationObject.address;
   const today = locationObject.days[0];
   const todaysWeather = today.icon;
   const todaysWeatherIcon = document.createElement("img");
-  todaysWeatherIcon.src = `icons/${todaysWeather}.svg`;
+
+  const todaysWeatherGif = await retrieveGifs(todaysWeather)
+
+  todaysWeatherIcon.src = `${todaysWeatherGif.data.images.original.url}`;
   todayCardLeft.textContent = "";
   todayCardLeft.appendChild(todaysWeatherIcon);
 
@@ -99,21 +103,16 @@ const updateToday = async function updateTodaysWeatherCard(locationObject) {
 const updateForecast = async function updateSevenDayForecastCard(
   locationObject
 ) {
-  forecastDays.forEach((day, index, listObj) => {
+  forecastDays.forEach(async function(day, index, listObj) {
     let weatherIcon = document.createElement("img");
-    weatherIcon.src = `icons/${locationObject.days[index + 1].icon}.svg`;
+    let weatherOfDay = locationObject.days[index + 1].icon
+    let weatherGif = await retrieveGifs(weatherOfDay)
+    let weatherGifUrl = weatherGif.data.images.original.url
+    weatherIcon.src = weatherGifUrl;
     day.textContent = "";
     day.appendChild(weatherIcon);
   });
 };
-
-const appendFave = function appendToFavouritesSidebar() {};
-
-const removeFave = function removeFromFavouritesSidebar() {};
-
-const clickOnFave = function callApiWhenFaveClicked() {};
-
-const displayLocationDropdown = function displayDropdownListOfLocations() {};
 
 const updateView = async function displayRetrievedWeatherDataOnPage(promise) {
   const locationObject = await promise;

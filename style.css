@@ -2,6 +2,10 @@ div {
     border: 1px black solid;
 }
 
+img {
+    max-width: 200px;
+}
+
 html {
     height: 100%;
     box-sizing: border-box;
@@ -43,12 +47,7 @@ header {
 
 .title-area {}
 
-.lower-page {
-    grid-area: main;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: minmax(100px, 200px) 1fr;
-}
+
 
 .sidebar {}
 
